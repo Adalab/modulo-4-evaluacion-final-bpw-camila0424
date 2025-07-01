@@ -105,7 +105,6 @@ server.post("/api/frases", async (req, res) => {
       },
     });
   } catch (error) {
-    console.error(error);
     res
       .status(500)
       .json({ success: false, error: "Error al insertar la frase" });
