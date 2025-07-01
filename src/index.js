@@ -73,7 +73,6 @@ server.get("/api/frases/:id", async (req, res) => {
 
     res.json(results[0]);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Error en la base de datos" });
   }
 });
@@ -159,8 +158,8 @@ server.put("/api/frases/:id", async (req, res) => {
       },
     });
   } catch (error) {
-    //Si ocurre un error, lo mostramos por consola y respondemos con error500
-    console.error("Error al actualizar la frase:", error);
+    //Si ocurre un error respondemos con error500
+
     res
       .status(500)
       .json({ success: false, error: "Error al actualizar la frase." });
@@ -200,8 +199,8 @@ server.delete("/api/frases/:id", async (req, res) => {
       message: `Frase con ID ${id} eliminada correctamente.`,
     });
   } catch (error) {
-    //En caso de error, lo mostramos por consola y enviamos error 500
-    console.error("Error al eliminar la frase:", error);
+    //En caso de error enviamos error 500
+
     res.status(500).json({
       success: false,
       error: "Error interno al eliminar la frase.",
